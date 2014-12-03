@@ -3,7 +3,7 @@ $:.push File.expand_path("../lib", __FILE__)
 require "ga_collector_pusher/version"
 
 Gem::Specification.new do |s|
-  s.name = "Google Analytics Collector Pusher"
+  s.name = "ga_collector_pusher"
   s.version = GACollectorPusher::VERSION
   s.author = "Girts Kesteris"
   s.email = ["girts.kesteris@gmail.com"]
