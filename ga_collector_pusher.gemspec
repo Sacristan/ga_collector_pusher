@@ -1,10 +1,9 @@
 # -*- encoding: utf-8 -*-
 $:.push File.expand_path("../lib", __FILE__)
-require "ga_collector_pusher/version"
 
 Gem::Specification.new do |s|
   s.name = "ga_collector_pusher"
-  s.version = GACollectorPusher::VERSION
+  s.version = "0.0.1"
   s.author = "Girts Kesteris"
   s.email = ["girts.kesteris@gmail.com"]
   s.homepage = "https://github.com/Sacristan/ga_collector_pusher.git"
