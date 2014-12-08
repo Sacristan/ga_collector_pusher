@@ -4,7 +4,7 @@ require 'spec_helper'
 
 describe "AddEventSpec" do
   before :all do
-    @instance = GACollectorPusher::Instance.new cid: 111
+    @instance = GACollectorPusher::Instance.new cid: 5555
   end
 
   it "should return OK" do
