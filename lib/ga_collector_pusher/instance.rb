@@ -52,7 +52,9 @@ module GACollectorPusher
       def send_to_ga
         puts @params.inspect
         params = @params.stringify_keys
-        RestClient.post 'https://ssl.google-analytics.com/collect', params: params, timeout: self.timeout, open_timeout: self.open_timeout
+        response = RestClient.get 'https://www.google-analytics.com/collect', params: params, timeout: self.timeout, open_timeout: self.open_timeout
+        puts "GACollectorPusher response from GA -> #{response.inspect}" 
+        response
       end
   end
 end
