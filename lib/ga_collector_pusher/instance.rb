@@ -27,7 +27,7 @@ module GACollectorPusher
         cid: self.cid, 
         t: "transaction",
         ti: transaction_id,
-        tr: total.to_s
+        tr: total
       }
       send_to_ga
     end
@@ -40,7 +40,7 @@ module GACollectorPusher
         t: "item", 
         ti: transaction_id,
         in: name,
-        ip: price.to_s,
+        ip: price,
         iq: quantity,  
         ic: item_sku,
         iv: category
