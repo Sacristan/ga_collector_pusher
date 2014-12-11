@@ -58,7 +58,7 @@ module GACollectorPusher
           status = "errror"
         end      
 
-        return {status: status, response: response, params: @params}
+        return {status: status, params: @params, response: response}
       end
   end
 end
