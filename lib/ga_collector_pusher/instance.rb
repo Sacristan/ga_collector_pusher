@@ -55,7 +55,7 @@ module GACollectorPusher
           status = "sent"
         rescue => error
           response = error.inspect
-          status = "errror"
+          status = "error"
         end      
 
         return {status: status, params: @params, response: response}
