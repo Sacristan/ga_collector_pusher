@@ -27,7 +27,7 @@ module GACollectorPusher
         cid: self.cid, 
         t: "transaction",
         ti: transaction_id,
-        tr: total
+        tr: total.round(2)
       }
       send_to_ga
     end
@@ -40,8 +40,8 @@ module GACollectorPusher
         t: "item", 
         ti: transaction_id,
         in: name,
-        ip: price,
-        iq: quantity,  
+        ip: price.round(2),
+        iq: quantity.to_i,  
         ic: item_sku,
         iv: category
       }
@@ -50,8 +50,9 @@ module GACollectorPusher
 
     private
       def send_to_ga
+        puts "GACollectorPusher sending params: #{@params}"
         begin
-          response = RestClient.get 'https://www.google-analytics.com/collect', params: @params, timeout: self.timeout, open_timeout: self.open_timeout
+          response = RestClient.get 'http://www.google-analytics.com/collect', params: @params, timeout: self.timeout, open_timeout: self.open_timeout
           status = "sent"
         rescue => error
           response = error.inspect

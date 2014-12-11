@@ -8,7 +8,7 @@ describe "AddEventSpec" do
     @transaction_id = Faker::Number.number(8)
     @item_sku = Faker::Commerce.department
     @price = Faker::Commerce.price
-    @quantity = Faker::Number.number(2)
+    @quantity = Faker::Number.number(2).to_i
     @name = Faker::Commerce.product_name
     @category = Faker::Lorem.word
 
