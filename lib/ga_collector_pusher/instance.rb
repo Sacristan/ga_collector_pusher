@@ -20,19 +20,20 @@ module GACollectorPusher
       send_to_ga
     end
 
-    def add_transaction transaction_id: nil, total: nil, store_name: nil, tax: nil, shipping: nil, city: nil, region: nil, country: nil
+    def add_transaction transaction_id: nil, total: nil, store_name: nil, tax: nil, shipping: nil, city: nil, region: nil, country: nil, currency: "EUR"
       @params = {
         v: GOOGLE_ANALYTICS_SETTINGS[:version], 
         tid: GOOGLE_ANALYTICS_SETTINGS[:tracking_code], 
         cid: self.cid, 
         t: "transaction",
         ti: transaction_id,
-        tr: total.round(2)
+        tr: total.round(2),
+        cu: currency
       }
       send_to_ga
     end
 
-    def add_item transaction_id: nil, item_sku: nil, price: nil, quantity: nil, name: nil, category: nil
+    def add_item transaction_id: nil, item_sku: nil, price: nil, quantity: nil, name: nil, category: nil, currency: "EUR"
       @params = {
         v: GOOGLE_ANALYTICS_SETTINGS[:version], 
         tid: GOOGLE_ANALYTICS_SETTINGS[:tracking_code], 
@@ -43,14 +44,14 @@ module GACollectorPusher
         ip: price.round(2),
         iq: quantity.to_i,  
         ic: item_sku,
-        iv: category
+        iv: category,
+        cu: currency
       }
       send_to_ga
     end
 
     private
       def send_to_ga
-        puts "GACollectorPusher sending params: #{@params}"
         begin
           response = RestClient.get 'http://www.google-analytics.com/collect', params: @params, timeout: self.timeout, open_timeout: self.open_timeout
           status = "sent"

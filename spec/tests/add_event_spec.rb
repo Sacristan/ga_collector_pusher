@@ -4,7 +4,7 @@ require 'spec_helper'
 
 describe "AddEventSpec" do
   before :all do
-    @cid = "#{Faker::Number.number(6)}.#{Faker::Number.number(6)}"
+    @cid = "#{Faker::Number.number(10)}.#{Faker::Number.number(10)}"
     @category = Faker::Lorem.word
     @action = Faker::Lorem.word
 

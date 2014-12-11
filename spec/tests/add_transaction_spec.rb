@@ -4,7 +4,7 @@ require 'spec_helper'
 
 describe "AddTransactionSpec" do
   before :all do
-    @cid = "#{Faker::Number.number(6)}.#{Faker::Number.number(6)}"
+    @cid = "#{Faker::Number.number(10)}.#{Faker::Number.number(10)}"
     @transaction_id = Faker::Number.number(8)
     @total = Faker::Commerce.price
     @store_name = Faker::Company.name
