@@ -28,6 +28,9 @@ describe "AddTransactionSpec" do
     puts @result
   end
 
+  it "status should be sent" do
+    expect(@result[:status]).to eq "sent"
+  end
 
   it "should return GA GIF" do
     expect(@result[:response]).not_to eq nil

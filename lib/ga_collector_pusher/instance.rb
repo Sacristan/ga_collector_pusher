@@ -50,8 +50,15 @@ module GACollectorPusher
 
     private
       def send_to_ga
-        response = RestClient.get 'https://www.google-analytics.com/collect', params: @params, timeout: self.timeout, open_timeout: self.open_timeout
-        return {response: response, params: @params}
+        begin
+          response = RestClient.get 'https://www.google-analytics.com/collect', params: @params, timeout: self.timeout, open_timeout: self.open_timeout
+          status = "sent"
+        rescue => error
+          response = error.inspect
+          status = "errror"
+        end      
+
+        return {status: status, response: response, params: @params}
       end
   end
 end
