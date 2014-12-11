@@ -52,7 +52,7 @@ module GACollectorPusher
       def send_to_ga
         params = @params.stringify_keys
         response = RestClient.get 'https://www.google-analytics.com/collect', params: params, timeout: self.timeout, open_timeout: self.open_timeout
-        return {response: response, params: @params}
+        return {response: response, params: params}
       end
   end
 end
