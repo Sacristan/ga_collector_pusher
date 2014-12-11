@@ -1,6 +1,7 @@
 require 'bundler/setup'
 Bundler.setup
 
+require "faker"
 require "config"
 require "ga_collector_pusher"
 

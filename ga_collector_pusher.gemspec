@@ -21,7 +21,8 @@ Gem::Specification.new do |s|
   s.rubyforge_project = "ga_collector_pusher"
 
   s.add_development_dependency 'rake'
-  s.add_development_dependency "rspec"
+  s.add_development_dependency 'rspec'
+  s.add_development_dependency 'faker'
 
   s.add_dependency "rest-client"
   s.add_dependency "activesupport"
