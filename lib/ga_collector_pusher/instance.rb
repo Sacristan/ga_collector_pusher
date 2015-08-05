@@ -55,6 +55,17 @@ module GACollectorPusher
       send_to_ga
     end
 
+    def add_social action: nil, network: nil, target: nil
+      @params = {
+        t: "social",
+        sa: action,
+        sn: network,
+        st: target
+      }
+
+      send_to_ga
+    end
+
     private
       def mandatory_fields
         {
