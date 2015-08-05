@@ -8,6 +8,17 @@ module GACollectorPusher
       self.open_timeout = open_timeout
     end
 
+    def add_page_view hostname: nil, page: nil, title: nil
+      @params = {
+        t: "pageview",
+        dh: hostname,
+        dp: page,
+        dt: title
+      }
+
+      send_to_ga
+    end
+
     def add_event category: nil, action: nil, label: nil, value: nil, utmni: false
       @params = {
         t: "event",
