@@ -1,3 +1,7 @@
+# GA Measurement protocol DOCS:
+# https://developers.google.com/analytics/devguides/collection/protocol/v1/parameters
+# https://developers.google.com/analytics/devguides/collection/protocol/v1/devguide?hl=en#social
+
 module GACollectorPusher
   class Instance
     attr_accessor :cid, :timeout, :open_timeout
@@ -61,6 +65,20 @@ module GACollectorPusher
         sa: action,
         sn: network,
         st: target
+      }
+
+      send_to_ga
+    end
+
+
+    #convert bool to integer
+    def add_exception description: nil, is_fatal: false
+      is_fatal_int = is_fatal ? 1 : 0
+
+      @params = {
+        t: "exception",
+        exd: description,
+        exf: is_fatal_int
       }
 
       send_to_ga
