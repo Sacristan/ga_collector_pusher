@@ -10,34 +10,27 @@ module GACollectorPusher
 
     def add_event category: nil, action: nil, label: nil, value: nil, utmni: false
       @params = {
-        v: GOOGLE_ANALYTICS_SETTINGS[:version],
-        tid: GOOGLE_ANALYTICS_SETTINGS[:tracking_code],
-        cid: self.cid,
         t: "event",
         ec: category,
         ea: action
       }
+
       send_to_ga
     end
 
     def add_transaction transaction_id: nil, total: nil, store_name: nil, tax: nil, shipping: nil, city: nil, region: nil, country: nil, currency: "EUR"
       @params = {
-        v: GOOGLE_ANALYTICS_SETTINGS[:version],
-        tid: GOOGLE_ANALYTICS_SETTINGS[:tracking_code],
-        cid: self.cid,
         t: "transaction",
         ti: transaction_id,
         tr: total.round(2),
         cu: currency
       }
+
       send_to_ga
     end
 
     def add_item transaction_id: nil, item_sku: nil, price: nil, quantity: nil, name: nil, category: nil, currency: "EUR"
       @params = {
-        v: GOOGLE_ANALYTICS_SETTINGS[:version],
-        tid: GOOGLE_ANALYTICS_SETTINGS[:tracking_code],
-        cid: self.cid,
         t: "item",
         ti: transaction_id,
         in: name,
@@ -47,11 +40,22 @@ module GACollectorPusher
         iv: category,
         cu: currency
       }
+
       send_to_ga
     end
 
     private
+      def mandatory_fields
+        {
+          v: GOOGLE_ANALYTICS_SETTINGS[:version],
+          tid: GOOGLE_ANALYTICS_SETTINGS[:tracking_code],
+          cid: self.cid
+        }
+      end
+
       def send_to_ga
+        @params.merge! mandatory_fields
+
         begin
           response = RestClient.get 'http://www.google-analytics.com/collect', params: @params, timeout: self.timeout, open_timeout: self.open_timeout
           status = "sent"
