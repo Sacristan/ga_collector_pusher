@@ -97,7 +97,7 @@ module GACollectorPusher
         @params.merge! mandatory_fields
 
         begin
-          response = RestClient.get 'http://www.google-analytics.com/collect', params: @params, timeout: self.timeout, open_timeout: self.open_timeout
+          response = RestClient.post 'http://www.google-analytics.com/collect', params: @params, timeout: self.timeout, open_timeout: self.open_timeout
           status = "sent"
         rescue => error
           response = error.inspect
