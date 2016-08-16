@@ -1,1 +1,5 @@
-TODO
+# Configuration
+* GACollectorPusher::Config.verbose = true
+    > Outputs more data to logs
+* GACollectorPusher::Config.paranoid = true
+    > If returned GA push response status is not 20x then raises errors

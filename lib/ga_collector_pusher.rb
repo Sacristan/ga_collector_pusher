@@ -1,6 +1,7 @@
 require 'rest-client'
 require 'active_support/core_ext'
 require 'ga_collector_pusher/instance'
+require 'ga_collector_pusher/config'
 
 module GACollectorPusher
   def self.new

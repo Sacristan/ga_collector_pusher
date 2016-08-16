@@ -3,3 +3,6 @@ GOOGLE_ANALYTICS_SETTINGS = {
   tracking_code: "UA-123456-1",
   domain: "test@domain.com"
 }
+
+GACollectorPusher::Config.verbose = true
+GACollectorPusher::Config.paranoid = true

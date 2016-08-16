@@ -1,6 +1,7 @@
 # -*- encoding: utf-8 -*-
 $:.push File.expand_path("../lib", __FILE__)
 require "ga_collector_pusher/version"
+require "ga_collector_pusher/config"
 
 Gem::Specification.new do |s|
   s.name = "ga_collector_pusher"

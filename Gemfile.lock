@@ -1,21 +1,21 @@
 PATH
   remote: .
   specs:
-    ga_collector_pusher (0.2)
+    ga_collector_pusher (0.2.2)
       activesupport
       rest-client
 
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (4.1.10)
+    activesupport (4.1.16)
       i18n (~> 0.6, >= 0.6.9)
       json (~> 1.7, >= 1.7.7)
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     diff-lcs (1.2.5)
-    domain_name (0.5.23)
+    domain_name (0.5.20160615)
       unf (>= 0.0.5, < 1.0.0)
     faker (1.4.3)
       i18n (~> 0.5)
@@ -23,14 +23,16 @@ GEM
       domain_name (~> 0.5)
     i18n (0.6.11)
     json (1.8.3)
-    mime-types (2.4.3)
-    minitest (5.7.0)
-    netrc (0.10.3)
+    mime-types (3.1)
+      mime-types-data (~> 3.2015)
+    mime-types-data (3.2016.0521)
+    minitest (5.9.0)
+    netrc (0.11.0)
     rake (10.4.2)
-    rest-client (1.8.0)
+    rest-client (2.0.0)
       http-cookie (>= 1.0.2, < 2.0)
-      mime-types (>= 1.16, < 3.0)
-      netrc (~> 0.7)
+      mime-types (>= 1.16, < 4.0)
+      netrc (~> 0.8)
     rspec (3.1.0)
       rspec-core (~> 3.1.0)
       rspec-expectations (~> 3.1.0)
@@ -48,7 +50,7 @@ GEM
       thread_safe (~> 0.1)
     unf (0.1.4)
       unf_ext
-    unf_ext (0.0.6)
+    unf_ext (0.0.7.2)
 
 PLATFORMS
   ruby
@@ -58,3 +60,6 @@ DEPENDENCIES
   ga_collector_pusher!
   rake
   rspec
+
+BUNDLED WITH
+   1.10.6
