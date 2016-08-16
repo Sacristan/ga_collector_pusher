@@ -97,7 +97,7 @@ module GACollectorPusher
 
         begin
           response = RestClient.post 'http://www.google-analytics.com/collect', params: @params, timeout: self.timeout, open_timeout: self.open_timeout
-          puts "GA: Response from GA: #{response.to_s}" if GACollectorPusher::Config.verbose
+          puts "GACollectorPusher Response from GA: #{response.to_s} with params: #{@params.inspect}" if GACollectorPusher::Config.verbose
 
           if (200..207).to_a.include? response.code
             status = "sent"
