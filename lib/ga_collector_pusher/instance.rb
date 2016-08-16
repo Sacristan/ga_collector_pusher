@@ -105,8 +105,7 @@ module GACollectorPusher
             raise "GACollectorPusher received non 20x status from GA for #{@params}" if GACollectorPusher::Config.paranoid
             status = "error"
           end
-
-        rescue => error
+        rescue RestClient::ExceptionWithResponse => error
           response = error.inspect
           puts "GACollectorPusher error: #{response}" if GACollectorPusher::Config.verbose
           status = "error"

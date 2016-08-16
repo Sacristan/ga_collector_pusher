@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    ga_collector_pusher (0.2.4)
+    ga_collector_pusher (0.2.5)
       activesupport
       rest-client
 
